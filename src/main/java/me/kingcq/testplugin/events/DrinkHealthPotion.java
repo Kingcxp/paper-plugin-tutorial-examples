@@ -39,6 +39,7 @@ public class DrinkHealthPotion implements Listener {
             useLeft -= 1;
             if (useLeft == 0) {
                 player.sendMessage(Component.text("The potion has been used up!", NamedTextColor.GREEN));
+                player.playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 1f, 1f);
                 event.setReplacement(new ItemStack(Material.AIR));
             } else {
                 item.lore(List.of(
