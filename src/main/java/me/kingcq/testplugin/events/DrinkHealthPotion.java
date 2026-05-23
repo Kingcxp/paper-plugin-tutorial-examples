@@ -15,6 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.List;
+import java.util.Objects;
 
 public class DrinkHealthPotion implements Listener {
 
@@ -24,6 +25,34 @@ public class DrinkHealthPotion implements Listener {
         ItemStack item = event.getItem();
         if (!item.getType().equals(Material.HONEY_BOTTLE)) {
             return;
+        }
+        player.heal(6d);
+        if (item.getPersistentDataContainer().get(GetHealthPotion.maxUses, PersistentDataType.INTEGER) != null) {
+            int maxUses = item.getPersistentDataContainer().get(
+                    GetHealthPotion.maxUses,
+                    PersistentDataType.INTEGER
+            );
+            int useLeft = item.getPersistentDataContainer().get(
+                    GetHealthPotion.maxUses,
+                    PersistentDataType.INTEGER
+            );
+            useLeft -= 1;
+            if (useLeft == 0) {
+                player.sendMessage(Component.text("The potion has been used up!", NamedTextColor.GREEN));
+                event.setReplacement(new ItemStack(Material.AIR));
+            } else {
+                item.lore(List.of(
+                        Component.text("A simple health potion", NamedTextColor.LIGHT_PURPLE),
+                        Component.text("Uses left : " + useLeft + " / " + maxUses)
+                ));
+                int finalUseLeft = useLeft;
+                item.editPersistentDataContainer((container) -> container.set(
+                        Objects.requireNonNull(GetHealthPotion.usesLeft),
+                        PersistentDataType.INTEGER,
+                        finalUseLeft
+                ));
+                event.setReplacement(item);
+            }
         }
     }
 }

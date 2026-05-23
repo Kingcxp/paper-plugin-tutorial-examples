@@ -16,8 +16,8 @@ import java.util.List;
 
 public class GetHealthPotion implements BasicCommand {
 
-    public static NamespacedKey usesLeft = new NamespacedKey("test_plugin", "health_potion_use_left");
-    public static NamespacedKey maxUses = new NamespacedKey("test_plugin", "health_potion_max_use");
+    public static NamespacedKey usesLeft = new NamespacedKey("test_plugin", "health_potion_uses_left");
+    public static NamespacedKey maxUses = new NamespacedKey("test_plugin", "health_potion_max_uses");
 
     @Override
     public void execute(CommandSourceStack commandSourceStack, String[] args) {
