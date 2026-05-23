@@ -1,0 +1,11 @@
+name: TestPlugin
+description: $description
+prefix: TestPlugin
+version: '${version}'
+
+main: me.kingcq.testplugin.TestPlugin
+api-version: '26.1.2'
+load: POSTWORLD
+
+authors: [ kingcq ]
+website: https://kingcxp.github.io/

@@ -1,0 +1,15 @@
+# Editor folders
+.vs/
+.idea/
+.vscode
+
+# Cache files
+.DS_Store
+__MACOSX/
+Thumbs.db
+
+# Build folders
+bin/
+build/
+run/
+.gradle/
