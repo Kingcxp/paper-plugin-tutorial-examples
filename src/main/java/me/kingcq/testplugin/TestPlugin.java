@@ -2,6 +2,8 @@ package me.kingcq.testplugin;
 
 import me.kingcq.testplugin.commands.RocketUI;
 import me.kingcq.testplugin.events.RocketUIClick;
+import me.kingcq.testplugin.events.ScoreboardAndBar;
+import me.kingcq.testplugin.recipes.FurnaceRecipes;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
@@ -20,9 +22,6 @@ public final class TestPlugin extends JavaPlugin {
         sender.sendMessage(Component.text("Hello from TestPlugin!", NamedTextColor.GOLD));
 
         PluginManager manager = Bukkit.getPluginManager();
-        manager.registerEvents(new RocketUIClick(), this);
-
-        registerCommand("/rocket_ui", new RocketUI());
     }
 
     @Override

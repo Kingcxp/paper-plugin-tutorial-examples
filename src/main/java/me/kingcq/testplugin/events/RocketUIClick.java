@@ -3,6 +3,10 @@ package me.kingcq.testplugin.events;
 import me.kingcq.testplugin.TestPlugin;
 import me.kingcq.testplugin.commands.RocketUI;
 import me.kingcq.testplugin.tasks.RocketTask;
+import net.kyori.adventure.text.Component;
+import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,7 +25,7 @@ public class RocketUIClick implements Listener {
         if (item == null) {
             return;
         }
-        if (Boolean.TRUE.equals(item.getPersistentDataContainer().get(RocketUI.rocketTriggerKey, PersistentDataType.BOOLEAN))) {
+        if (!Boolean.TRUE.equals(item.getPersistentDataContainer().get(RocketUI.rocketTriggerKey, PersistentDataType.BOOLEAN))) {
             return;
         }
         event.setCancelled(true);
