@@ -26,11 +26,11 @@ public class SlimeShieldEvent implements Listener {
             } else {
                 item.setAmount(item.getAmount() - 1);
             }
+            Vector direction = entity.getLocation().getDirection();
+            direction.multiply(-1);
+            direction.normalize();
+            direction.multiply(15);
+            entity.setVelocity(direction);
         }
-        Vector direction = entity.getLocation().getDirection();
-        direction.multiply(-1);
-        direction.normalize();
-        direction.multiply(15);
-        entity.setVelocity(direction);
     }
 }
