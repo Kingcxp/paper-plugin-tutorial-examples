@@ -13,3 +13,7 @@ bin/
 build/
 run/
 .gradle/
+
+.classpath
+.projects
+.settings/
