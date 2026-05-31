@@ -26,6 +26,7 @@ public class GetHealthPotion implements BasicCommand {
             return;
         }
         ItemStack potion = new ItemStack(Material.HONEY_BOTTLE);
+
         potion.editPersistentDataContainer(container -> {
             container.set(
                     usesLeft,
@@ -39,6 +40,7 @@ public class GetHealthPotion implements BasicCommand {
             );
         });
         ItemMeta meta = potion.getItemMeta();
+        meta.setMaxStackSize(1);
         meta.displayName(Component.text("Health Potion", NamedTextColor.GREEN));
         meta.lore(List.of(
                 Component.text("A simple health potion", NamedTextColor.LIGHT_PURPLE),

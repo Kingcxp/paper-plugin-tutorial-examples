@@ -10,7 +10,7 @@ public class FurnaceRecipes {
     public static void registerRecipes() {
         FurnaceRecipe rottenFleshRecipe = new FurnaceRecipe(
                 new NamespacedKey("test_plugin", "rotten_flesh_to_leather"),
-                new ItemStack(Material.LEATHER, 1),
+                new ItemStack(Material.LEATHER, 2),
                 Material.ROTTEN_FLESH,
                 1, 20
         );

@@ -26,17 +26,17 @@ public class DrinkHealthPotion implements Listener {
         if (!item.getType().equals(Material.HONEY_BOTTLE)) {
             return;
         }
-        player.heal(6d);
         if (item.getPersistentDataContainer().get(GetHealthPotion.maxUses, PersistentDataType.INTEGER) != null) {
             int maxUses = item.getPersistentDataContainer().get(
                     GetHealthPotion.maxUses,
                     PersistentDataType.INTEGER
             );
             int useLeft = item.getPersistentDataContainer().get(
-                    GetHealthPotion.maxUses,
+                    GetHealthPotion.usesLeft,
                     PersistentDataType.INTEGER
             );
             useLeft -= 1;
+            player.heal(6d);
             if (useLeft == 0) {
                 player.sendMessage(Component.text("The potion has been used up!", NamedTextColor.GREEN));
                 player.playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 1f, 1f);
@@ -48,7 +48,7 @@ public class DrinkHealthPotion implements Listener {
                 ));
                 int finalUseLeft = useLeft;
                 item.editPersistentDataContainer((container) -> container.set(
-                        Objects.requireNonNull(GetHealthPotion.usesLeft),
+                        GetHealthPotion.usesLeft,
                         PersistentDataType.INTEGER,
                         finalUseLeft
                 ));
