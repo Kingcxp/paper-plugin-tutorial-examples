@@ -16,7 +16,8 @@ public class DiamondPopulator extends BlockPopulator {
 
         int startY = 61;
 
-        region.setType(worldX, startY, worldZ, Material.DIAMOND_BLOCK);
+        region.setType(worldX + 1, startY, worldZ, Material.DIAMOND_BLOCK);
+        region.setType(worldX - 1, startY, worldZ, Material.DIAMOND_BLOCK);
         region.setType(worldX, startY + 1, worldZ, Material.DIAMOND_BLOCK);
         region.setType(worldX, startY + 2, worldZ, Material.DIAMOND_BLOCK);
     }
